@@ -1,0 +1,26 @@
+# Empty environment
+maxent_mon_minigrid.register_environment.env_id = 'MiniGrid-MaxEntDayan2-v0'
+
+MaxEntMonMiniGridEnv.directional = True
+MaxEntMonMiniGridEnv.agent_pos = None
+MaxEntMonMiniGridEnv.goal_pos = None
+MaxEntMonMiniGridEnv.max_steps = 100
+MaxEntMonMiniGridEnv.ascii_grid = """
+***************
+*             *
+*      llll   *
+*  g   l      *
+*      l      *
+*      ls     *
+*      l      *
+*      llll   *
+*             *
+***************"""
+
+MaxEntMonMiniGridEnv.reward_dict = {
+  "g": 0,   # goal aka terminal states have 0 reward (could be anything)
+  "s": -1,
+  ' ': -1,
+  'l': -20,
+  '*': 1    # walls don't have reward, so set to positive value
+}

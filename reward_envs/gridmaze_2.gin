@@ -1,0 +1,37 @@
+# Empty environment
+maxent_mon_minigrid.register_environment.env_id = 'MiniGrid-MaxEntGridMaze2-v0'
+
+MaxEntMonMiniGridEnv.directional = True
+MaxEntMonMiniGridEnv.agent_pos = None
+MaxEntMonMiniGridEnv.goal_pos = None
+MaxEntMonMiniGridEnv.max_steps = 1000
+MaxEntMonMiniGridEnv.ascii_grid = """
+*******************
+*         *       *
+* ********* ***** *
+*           *   * *
+* *********** * * *
+* *     *   * *   *
+* * *** * * * *** *
+* * *   * *   *   *
+*s* * *** ***** ***
+*   *   * *   *   *
+* *****l* * * * * *
+* *    ll   * * * *
+* * ********* * ***
+* * *     *   *   *
+* *** *** * *******
+* *   * * *       *
+* * * * * ******* *
+*   *   *     *g  *
+*******************"""
+
+MaxEntMonMiniGridEnv.reward_dict = {
+  "g": -0,   # goal aka terminal states have 0 reward (could be anything)
+  "s": -1,
+  ' ': -1,
+  'l': -20,
+  '*': 1    # walls don't have reward, so set to positive value
+}
+
+# Modified from https://proceedings.mlr.press/v139/wang21ae/wang21ae.pdf
